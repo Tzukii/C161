@@ -85,9 +85,9 @@ AFRAME.registerComponent("wire-fence", {
 //boxes
 AFRAME.registerComponent("boxes", {
     schema: {
-        height: { type: "number", default: 3 },
-        width: { type: "number", default: 3 },
-        depth: { type: "number", default: 3 },
+        height: { type: "number", default: 2 },
+        width: { type: "number", default: 2 },
+        depth: { type: "number", default: 2 },
     },
     init: function () {
 
