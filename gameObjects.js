@@ -81,6 +81,7 @@ AFRAME.registerComponent("wire-fence", {
     },
 });
 
+
 //boxes
 AFRAME.registerComponent("boxes", {
     schema: {
@@ -104,13 +105,16 @@ AFRAME.registerComponent("boxes", {
 
         for (var i = 0; i < 20; i++) {
             var box = document.createElement("a-entity");
-            box.setAttribute("id", "box" + i);
 
-            posX = px[i];
-            posY = 1;
-            posZ = pz[i];
+            //Update the position variables values from the array values.
+            posX;
+            posY;
+            posZ;
 
             position = { x: posX, y: posY, z: posZ };
+
+            box.setAttribute("id", "box" + i);
+
             box.setAttribute("position", position);
 
             box.setAttribute("geometry", {
@@ -126,6 +130,7 @@ AFRAME.registerComponent("boxes", {
             });
 
             box.setAttribute("static-body", {});
+
             var sceneEl = document.querySelector("#scene");
             sceneEl.appendChild(box);
         }
