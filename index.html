@@ -15,15 +15,14 @@
   </head>
 
   <body>
-
     <a-scene id="scene" inspector-plugin-recast>
-
-    <a-scene id="scene">
       <!--Assets-->
       <a-assets>
-        <a-asset-item id="shooter" src="./models/shooter/gun.gltf"></a-asset-item>
+        <a-asset-item
+          id="shooter"
+          src="./models/shooter/gun.gltf"
+        ></a-asset-item>
         <a-asset-item id="collider" src="./models/navmesh.gltf"></a-asset-item>
-
         <audio id="shoot" src="./sounds/shoot.mp3"></audio>
         <audio id="footstep" src="./sounds/footStep.mp3"></audio>
       </a-assets>
@@ -52,24 +51,29 @@
         position="-1 1 0"
       ></a-entity>
 
-      <!--Camera and Cursor-->
       <a-entity
-        id="camera"
-        camera
-        position="0 1.6 0"
-        wasd-controls
-        look-controls="pointerLockEnabled: false"
+        id="camera-rig"
+        movement-controls="speed: 0.2; constrainToNavMesh: true"
+        position="0 1 2"
       >
+        <!--Camera and Cursor-->
         <a-entity
-          id="weapon"
-          gltf-model="#shooter"
-          position="0 -4.4 3"
-          rotation="0 180 0"
-          scale="0.35 1 1"
-          player-movement
+          id="camera"
+          camera
+          position="0 1.6 0"
+          look-controls="pointerLockEnabled: false"
         >
+          <a-entity
+            id="weapon"
+            gltf-model="#shooter"
+            position="0 -4.4 3"
+            rotation="0 180 0"
+            scale="0.35 1 1"
+            player-movement
+          >
+          </a-entity>
+          <a-cursor></a-cursor>
         </a-entity>
-        <a-cursor></a-cursor>
       </a-entity>
 
       <!--Bullets-->
@@ -92,10 +96,14 @@
       >
       </a-plane>
 
-    <!-- Navigation Mesh -->
-    <a-entity id="navigation-mesh" gltf-model="#collider" visible="false" nav-mesh>
-    </a-entity>
-
+      <!-- Navigation Mesh -->
+      <a-entity
+        id="navigation-mesh"
+        gltf-model="#collider"
+        visible="false"
+        nav-mesh
+      >
+      </a-entity>
     </a-scene>
   </body>
 </html>
