@@ -106,7 +106,6 @@ AFRAME.registerComponent("boxes", {
         for (var i = 0; i < 20; i++) {
             var box = document.createElement("a-entity");
 
-            //Update the position variables values from the array values.
             posX = px[i];
             posY = 1;
             posZ = pz[i];
@@ -114,7 +113,6 @@ AFRAME.registerComponent("boxes", {
             position = { x: posX, y: posY, z: posZ };
 
             box.setAttribute("id", "box" + i);
-
             box.setAttribute("position", position);
 
             box.setAttribute("geometry", {
